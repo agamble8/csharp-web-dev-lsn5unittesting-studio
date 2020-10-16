@@ -108,6 +108,6 @@ namespace BalancedBracketsTests
         public void CurlyBracesAsTypoReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[Launch}Code"));
-        }
+        } 
     }
 }
