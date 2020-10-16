@@ -54,6 +54,20 @@ namespace BalancedBracketsTests
             Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[[[[LaunchCode]is]the]best!]"));
         }
 
+        //Test that a large number of balanced braces returns true
+        [TestMethod]
+        public void HighBracketCountReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[LaunchCode]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"));
+        }
+
+        //Test that multiple bracket types used together returns true
+        [TestMethod]
+        public void NestedBracketsOfDifferentTypesReturnsTrue()
+        {
+            Assert.IsTrue(BalancedBrackets.HasBalancedBrackets("{Nesting [(this is where) we write the code]}"));
+        }
+
         //Test that only 1 bracket and no other string returns false
         [TestMethod]
         public void OnlyOneBracketReturnsFalse()
@@ -87,6 +101,13 @@ namespace BalancedBracketsTests
         public void OddNumberOfBracketsWithStringReturnsFalse()
         {
             Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[[[sdf]sdf[sdfs]sdfs]sdf"));
+        }
+
+        //Test that curly braces instead of square braces return false
+        [TestMethod]
+        public void CurlyBracesAsTypoReturnsFalse()
+        {
+            Assert.IsFalse(BalancedBrackets.HasBalancedBrackets("[Launch}Code"));
         }
     }
 }
